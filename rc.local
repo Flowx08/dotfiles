@@ -1,0 +1,6 @@
+sudo chmod 777 /sys/firmware/acpi/interrupts/gpe66
+sudo echo "disable" > /sys/firmware/acpi/interrupts/gpe66
+
+sudo intel_backlight 50
+
+exit 0
