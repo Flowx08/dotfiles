@@ -8,7 +8,7 @@ font pango: Ubuntu Mono 10
 new_window 1pixel
 
 #Colors
-client.focused          #333333 #A0A0A0 #000000
+client.focused          #333333 #606060 #000000
 client.focused_inactive #333333 #000000 #ffffff
 client.unfocused        #333333 #000000 #888888
 client.urgent           #333333 #000000 #ffffff
@@ -162,8 +162,8 @@ bar {
       	inactive_workspace #101010 #000000 #808080
 	}
 	
-	mode dock
-	position top
+	mode hide
+	position bottom
 	status_command conky-i3bar
 	workspace_buttons yes
 	tray_output primary
@@ -171,7 +171,8 @@ bar {
 
 #Startup stuff
 exec --no-startup-id dunst
+exec --no-startup-id xset r rate 240 30
 exec --no-startup-id xrandr --auto --output DP3 --mode 1920x1080 --right-of HDMI1
-exec --no-startup-id feh --bg-scale ~/dotfiles/background.jpg
+exec --no-startup-id feh --bg-scale ~/dotfiles/background2.png
 exec --no-startup-id python ~/.gmail.py
 exec --no-startup-id notify-send -h string:bgcolor:#005555 -h string:fgcolor:#FFFFFF "SYSTEM" "Welcome back $USER"  
