@@ -17,7 +17,7 @@ client.urgent           #333333 #000000 #ffffff
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -151,6 +151,10 @@ mode "blocked" {}
 bindsym $mod+r mode "resize"
 bindsym $mod+c mode "control"
 
+#gaps
+gaps inner 10
+gaps outer 10
+
 #i3bar with conky
 bar {
 	colors {
@@ -171,8 +175,7 @@ bar {
 
 #Startup stuff
 exec --no-startup-id dunst
-exec --no-startup-id xset r rate 240 30
-exec --no-startup-id xrandr --auto --output DP3 --mode 1920x1080 --right-of HDMI1
-exec --no-startup-id feh --bg-scale ~/dotfiles/background2.png
-exec --no-startup-id python ~/.gmail.py
-exec --no-startup-id notify-send -h string:bgcolor:#005555 -h string:fgcolor:#FFFFFF "SYSTEM" "Welcome back $USER"  
+exec --no-startup-id xset r rate 200 30
+exec --no-startup-id xrandr --auto --output DP3 --mode 1920x1080 --right-of HDMI2
+exec --no-startup-id feh --bg-scale ~/dotfiles/background5.png
+exec --no-startup-id compton

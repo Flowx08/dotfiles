@@ -42,13 +42,13 @@ TEXT
 
 #Shows current CPU usage and temperature
 ${if_match $cpu > 20} \
-	{"full_text": " CPU $cpu% TMP ${exec sensors | awk '/Core 0/ {print $3}'} ", "color":"\#FF0000"}, \
+	{"full_text": "  $cpu%   ${exec sensors | awk '/Core 0/ {print $3}'} ", "color":"\#FF0000"}, \
 ${else}
-	{"full_text": " CPU $cpu% TMP ${exec sensors | awk '/Core 0/ {print $3}'} ", "color":"\#00A9B5"}, \
+	{"full_text": "  $cpu%   ${exec sensors | awk '/Core 0/ {print $3}'} ", "color":"\#00A9B5"}, \
 ${endif}
 
 #Shows current memory usage with a bar
-  {"full_text": " RAM $mem ", "color":"\#B58900"},
+  {"full_text": "  $mem ", "color":"\#B58900"},
 
 #Shows battery infos
 ${if_match $battery_percent > 0}
@@ -62,7 +62,7 @@ ${else}
 	${if_up eth0} \
 		{"full_text": " LAN ${addr eth0} ", "color":"\#AAAAAA"}, \
 	${else}
-		{"full_text": " No network ", "color":"\#AAAAAA"}, \
+		{"full_text": "  No network ", "color":"\#AAAAAA"}, \
 	${endif}
 ${endif}
 
