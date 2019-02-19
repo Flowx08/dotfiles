@@ -8,10 +8,10 @@ font pango: Ubuntu Mono 10
 new_window 1pixel
 
 #Colors
-client.focused          #333333 #606060 #000000
-client.focused_inactive #333333 #000000 #ffffff
-client.unfocused        #333333 #000000 #888888
-client.urgent           #333333 #000000 #ffffff
+client.focused          #333333 #606060 #000000 #00ff00 #00ff00
+client.focused_inactive #333333 #000000 #ffffff #222222 #222222
+client.unfocused        #333333 #000000 #888888	#222222	#222222
+client.urgent           #333333 #000000 #ffffff	#00ff00	#00ff00
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -152,8 +152,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+c mode "control"
 
 #gaps
-gaps inner 10
-gaps outer 10
+gaps inner 24
+gaps outer 64
 
 #i3bar with conky
 bar {
@@ -174,8 +174,7 @@ bar {
 }
 
 #Startup stuff
-exec --no-startup-id dunst
 exec --no-startup-id xset r rate 200 30
-exec --no-startup-id xrandr --auto --output DP3 --mode 1920x1080 --right-of HDMI2
+exec --no-startup-id xrandr --auto --output DVI-D-0 --mode 1920x1080 --right-of HDMI-0
 exec --no-startup-id feh --bg-scale ~/dotfiles/background5.png
-exec --no-startup-id compton
+exec --no-startup-id xcompmgr
