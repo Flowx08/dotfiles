@@ -1,0 +1,37 @@
+cmd - return : open -n /Applications/iTerm.app
+cmd - n : open -a Notes
+
+# focus window
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+
+# move window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+# make fullscreen
+cmd - f : yabai -m window --toggle native-fullscreen
+
+# shift + cmd - e : yabai -m space --layout stack
+
+# Float / Unfloat window
+shift + cmd - space : \
+    yabai -m window --toggle float; \
+    yabai -m window --toggle border
+
+# reload yabai
+shift + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+cmd - 1 : open -a iTerm
+cmd - 2 : open -a Safari
+cmd - 3 : open -a Visual\ Studio\ Code
+cmd - 4 : open -a Notes
+
+shift + cmd - 1 : yabai -m space --focus 1
+shift + cmd - 2 : yabai -m space --focus 2
+shift + cmd - 3 : yabai -m space --focus 3
+shift + cmd - 4 : yabai -m space --focus 4
