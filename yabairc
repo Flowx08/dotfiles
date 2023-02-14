@@ -7,7 +7,7 @@ sudo yabai --load-sa
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          on
 yabai -m config window_placement             second_child
-yabai -m config window_topmost               on
+yabai -m config window_topmost               on 
 yabai -m config window_shadow                off
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
@@ -17,10 +17,10 @@ yabai -m config normal_window_opacity        0.0
 yabai -m config window_border                on
 yabai -m config window_border_width 1
 yabai -m config window_border_blur off
-yabai -m config window_border_radius 4
+yabai -m config window_border_radius 0
 yabai -m config window_border_hidpi          on
-yabai -m config active_window_border_color 0x55ff0000
-yabai -m config normal_window_border_color 0x00555555
+yabai -m config active_window_border_color 0x15ffffff
+yabai -m config normal_window_border_color 0x00ffffff
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
@@ -33,11 +33,11 @@ yabai -m config mouse_drop_action            swap
 yabai -m config layout                       bsp
 
 # Set all padding and gaps to 20pt (default: 0)
-yabai -m config top_padding    32
-yabai -m config bottom_padding 32
-yabai -m config left_padding   32
-yabai -m config right_padding  32
-yabai -m config window_gap     32
+yabai -m config top_padding    0
+yabai -m config bottom_padding 0
+yabai -m config left_padding   4
+yabai -m config right_padding  4
+yabai -m config window_gap     4
 
 # Disable animations when opening and closing windows.
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -46,6 +46,6 @@ defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # float system preferences
- yabai -m rule --add app!="^(iTerm2)$" manage=off
+yabai -m rule --add app!="^(iTerm2)$" manage=off
 
 echo "yabai configuration loaded.."
