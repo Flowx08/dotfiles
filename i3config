@@ -2,10 +2,10 @@
 set $mod Mod4
 
 #Font
-font pango: Ubuntu Mono 10
+font pango: FiraCode Nerd Font 10
 
 #Windows border 1 pixel
-new_window 1pixel
+#new_window 1pixel
 
 #Colors
 client.focused          #333333 #606060 #000000 #00ff00 #00ff00
@@ -17,7 +17,7 @@ client.urgent           #333333 #000000 #ffffff	#00ff00	#00ff00
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -152,8 +152,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+c mode "control"
 
 #gaps
-gaps inner 24
-gaps outer 64
+gaps inner 16
+gaps outer 16
 
 #i3bar with conky
 bar {

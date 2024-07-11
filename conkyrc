@@ -42,9 +42,9 @@ TEXT
 
 #Shows current CPU usage and temperature
 ${if_match $cpu > 20} \
-	{"full_text": "  $cpu%   ${exec sensors | awk '/Core 0/ {print $3}'} ", "color":"\#FF0000"}, \
+	{"full_text": "   $cpu%   ${exec sensors | awk '/Sensor 1/ {print $3}'} ", "color":"\#FF0000"}, \
 ${else}
-	{"full_text": "  $cpu%   ${exec sensors | awk '/Core 0/ {print $3}'} ", "color":"\#00A9B5"}, \
+	{"full_text": "   $cpu%   ${exec sensors | awk '/Sensor 1/ {print $3}'} ", "color":"\#00A9B5"}, \
 ${endif}
 
 #Shows current memory usage with a bar
@@ -59,8 +59,8 @@ ${endif}
 ${if_up wlan0} \
   {"full_text": " WIFI ${addr wlan0} ", "color":"\#AAAAAA"}, \
 ${else}
-	${if_up eth0} \
-		{"full_text": " LAN ${addr eth0} ", "color":"\#AAAAAA"}, \
+	${if_up enp1s0} \
+		{"full_text": " LAN ${addr enp1s0} ", "color":"\#AAAAAA"}, \
 	${else}
 		{"full_text": "  No network ", "color":"\#AAAAAA"}, \
 	${endif}
