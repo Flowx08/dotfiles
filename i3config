@@ -5,7 +5,7 @@ set $mod Mod4
 font pango: FiraCode Nerd Font 10
 
 #Windows border 1 pixel
-#new_window 1pixel
+new_window 1pixel
 
 #Colors
 client.focused          #333333 #606060 #000000 #00ff00 #00ff00
@@ -36,34 +36,22 @@ bindsym $mod+Ctrl+f exec firefox
 bindsym $mod+Ctrl+c exec unity-control-center
 
 #lock
-bindsym $mod+Shift+s exec sleep 0.5 && xset -display :0.0 dpms force off && i3lock -c 000000
+bindsym $mod+Shift+s exec i3lock -c 000000 && systemctl suspend
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ograve focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ograve move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -153,7 +141,7 @@ bindsym $mod+c mode "control"
 
 #gaps
 gaps inner 16
-gaps outer 16
+gaps outer 8
 
 #i3bar with conky
 bar {
@@ -177,4 +165,4 @@ bar {
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xrandr --auto --output DVI-D-0 --mode 1920x1080 --right-of HDMI-0
 exec --no-startup-id feh --bg-scale ~/dotfiles/background5.png
-exec --no-startup-id xcompmgr
+exec --no-startup-id picom
