@@ -25,9 +25,14 @@ sudo mkdir .config/picom/
 cp dotfiles/picom.conf .config/picom/
 
 # conky
+apt -y install conky-all
 apt -y install lm-sensors
 cp dotfiles/conkyrc .conkyrc
 sudo ln -sr dotfiles/conky-i3bar /usr/bin/conky-i3bar
+
+# tmux
+apt -y install tmux
+
 
 # alacritty terminal
 sudo mkdir .config/alacritty
@@ -41,13 +46,13 @@ sudo chmod -R 777 ./config/nvim
 sudo mkdir /root/.config
 sudo ln -s .config/nvim /root/.config/nvim
 
-# Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp dotfiles/zshrc .zshrc
-
 # lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 sudo ln -rs /usr/local/bin/lazygit /usr/local/bin/lg
+
+# Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp dotfiles/zshrc .zshrc
