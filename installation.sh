@@ -12,6 +12,7 @@ apt -y install clang-format
 apt -y install clangd
 apt -y install curl
 apt -y install zsh
+apt -y install openssh-server
 
 # i3
 # NOTE: need to install FiraCode Nerd Font
@@ -56,3 +57,8 @@ sudo ln -rs /usr/local/bin/lazygit /usr/local/bin/lg
 # Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp dotfiles/zshrc .zshrc
+
+# utilities
+apt -y install python3-full
+apt -y install pip
+apt -y install qutebrowser

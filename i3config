@@ -59,6 +59,16 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
+# Change volume
+# Increase volume
+bindsym $mod+Up exec --no-startup-id amixer set Master 5%+ && notify-send -t 200 "Volume" "Increased to $(amixer get Master | grep -o '[0-9]*%')"
+
+# Decrease volume
+bindsym $mod+Down exec --no-startup-id amixer set Master 5%- && notify-send -t 200 "Volume" "Decreased to $(amixer get Master | grep -o '[0-9]*%')"
+
+# Mute/Unmute volume
+bindsym $mod+m exec --no-startup-id amixer set Master toggle && notify-send -t 200 "Volume" "$(amixer get Master | grep -o '\[on\]\|\[off\]')"
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed

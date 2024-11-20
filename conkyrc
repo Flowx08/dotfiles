@@ -38,17 +38,17 @@ TEXT
 
 [
 #Shows current user
-  {"full_text": " ☻ ${exec whoami} ", "color":"\#00ff00"},
+  {"full_text": " \uf007 ${exec whoami} ", "color":"\#00ff00"},
 
 #Shows current CPU usage and temperature
 ${if_match $cpu > 20} \
-	{"full_text": "   $cpu%   ${exec sensors | awk '/Sensor 1/ {print $3}'} ", "color":"\#FF0000"}, \
+	{"full_text": " \uf4bc  $cpu%  \uf2c9 ${exec sensors | awk '/Sensor 1/ {print $3}'} ", "color":"\#FF0000"}, \
 ${else}
-	{"full_text": "   $cpu%   ${exec sensors | awk '/Sensor 1/ {print $3}'} ", "color":"\#00A9B5"}, \
+	{"full_text": " \uf4bc  $cpu%  \uf2c9 ${exec sensors | awk '/Sensor 1/ {print $3}'} ", "color":"\#00A9B5"}, \
 ${endif}
 
 #Shows current memory usage with a bar
-  {"full_text": "  $mem ", "color":"\#B58900"},
+  {"full_text": " \uefc5  $mem / $memmax ", "color":"\#B58900"},
 
 #Shows battery infos
 ${if_match $battery_percent > 0}
@@ -56,21 +56,24 @@ ${if_match $battery_percent > 0}
 ${endif}
 
 #Current network stats
-${if_up wlan0} \
-  {"full_text": " WIFI ${addr wlan0} ", "color":"\#AAAAAA"}, \
+${if_up wlp2s0} \
+  {"full_text": " \uf1eb  ${addr wlp2s0} ", "color":"\#AAAAAA"}, \
 ${else}
 	${if_up enp1s0} \
-		{"full_text": " LAN ${addr enp1s0} ", "color":"\#AAAAAA"}, \
+		{"full_text": " \uef94  ${addr enp1s0} ", "color":"\#AAAAAA"}, \
 	${else}
 		{"full_text": "  No network ", "color":"\#AAAAAA"}, \
 	${endif}
 ${endif}
 
+#Shows volume percentage
+ {"full_text": " \uF028  ${exec amixer get Master | grep -o -m 1 '[0-9]*%' | head -1} ", "color": "\#aaaaaa"},
+
 #Shows upime
   {"full_text": " ↑ ${uptime} ","color": "\#dc322f"},
 
 #Shows time
-  {"full_text": " ${time %a %d %b} ${time %H:%M:%S} ","color": "\#2fdc57"}
+  {"full_text": " \ue641 ${time %a %d %b} ${time %H:%M:%S} ","color": "\#2fdc57"}
 ],
 
 
